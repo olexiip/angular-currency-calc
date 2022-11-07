@@ -24,6 +24,7 @@ export class AppComponent implements  OnInit {
     "exchangedate":"",
     "r030":"980"
   };
+  
   getDataSub:any;
 
   ngOnInit() {

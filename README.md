@@ -1,5 +1,10 @@
 # CurrencyCalc
 
+https://olexiip.github.io/angular-test2/
+
+TASK: https://docs.google.com/document/d/1KWuOkO2jl_K1Btm5iVaqiPt0YM2uUuXNcfYdTMI6ZG0/edit
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
 ## Development server

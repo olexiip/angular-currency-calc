@@ -1,0 +1,15 @@
+<!-- <p>calc works!</p> -->
+<div class="calc">
+	<div class="calc-form">
+		<p class="calc-title">Calc:</p>
+		<input type="number" value="1" class="amount vA"   [(ngModel)]="v1" (change) = "onchangeA()">
+		<select class="amount xA"  [(ngModel)]="s1" (change) = "onchangeA()">
+			<option *ngFor="let rate of data">{{rate.cc}}</option>
+		</select>
+		<div class="to-smthg">to</div>
+		<input type="number" value="1" class="amount vB"  [(ngModel)]="v2" (change) = "onchangeB()">
+		<select class="amount xB"  [(ngModel)]="s2" (change) = "onchangeB()">
+			<option *ngFor="let rate of data">{{rate.cc}}</option>
+		</select>
+	</div>
+</div>

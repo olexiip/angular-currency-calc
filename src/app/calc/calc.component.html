@@ -1,21 +1,24 @@
 <!-- <p>calc works!</p> -->
 <div class="calc">
-	<div *ngIf="data.length>0">
+	<div *ngIf="ready">
 		<div class="calc-form">
 			<div class="currency">
-				<input type="number" maxlength="5" class="amount vA"   [(ngModel)]="v1" (change) = "onchangeA()" > <!--" -->
+				<input type="number" maxlength="5" class="amount vA"   [(ngModel)]="v1" (ngModelChange) = "onchangeVA()" > <!--" -->
 				<div class="terminator"></div>
-				<select class="sel xA"  [(ngModel)]="s1" (change) = "onchangeA()">
-					<option *ngFor="let rate of data">{{rate.cc}}</option>
+				<select class="sel xA"  [(ngModel)]="s1" (change) = "onchangeA()"><!-- [(ngModel)]="s1"-->
+					<option *ngFor="let rate of data" (ngModel)="rate.cc">{{rate.cc}}</option>
 				</select>
 			</div>
 			<div class="currency">
-				<input type="number" class="amount vB"  [(ngModel)]="v2" (change) = "onchangeB()">
+				<input type="number" class="amount vB"  [(ngModel)]="v2" (ngModelChange) = "onchangeVB()">
 				<div class="terminator"></div>
-				<select class="sel xB"  [(ngModel)]="s2" (change) = "onchangeB()">
-					<option *ngFor="let rate of data">{{rate.cc}}</option>
+				<select class="sel xB"	[(ngModel)]="s2"   (change) = "onchangeB()"> <!-- [(ngModel)]="s2"-->
+					<option *ngFor="let rate of data" (ngModel)="rate.cc">{{rate.cc}}</option>
 				</select>
 			</div>
 		</div>
+	</div>
+	<div *ngIf="!ready">
+		<div class="loading">loading...</div>
 	</div>
 </div>

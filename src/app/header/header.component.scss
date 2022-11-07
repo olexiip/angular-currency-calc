@@ -2,12 +2,13 @@
 	display: flex;
 	justify-content: center;
 	// justify-content: 
-	background-color: rgb(255, 214, 214);
+	background-color: rgb(255, 255, 255);
 }
 .popular-rate {
 	display: flex;
 	margin: 10px 10px 10px 10px;
 	.rate {
+		font-size: 28px;
 		margin: 0px 0px 0px 15px;
 	}
 }

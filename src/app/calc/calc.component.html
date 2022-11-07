@@ -2,16 +2,20 @@
 <div class="calc">
 	<div *ngIf="data.length>0">
 		<div class="calc-form">
-			<p class="calc-title">Calc:</p>
-			<input type="number" class="amount vA"   [(ngModel)]="v1" (change) = "onchangeA()" > <!--" -->
-			<select class="amount xA"  [(ngModel)]="s1" (change) = "onchangeA()">
-				<option *ngFor="let rate of data">{{rate.cc}}</option>
-			</select>
-			<div class="to-smthg">to</div>
-			<input type="number" class="amount vB"  [(ngModel)]="v2" (change) = "onchangeB()">
-			<select class="amount xB"  [(ngModel)]="s2" (change) = "onchangeB()">
-				<option *ngFor="let rate of data">{{rate.cc}}</option>
-			</select>
+			<div class="currency">
+				<input type="number" maxlength="5" class="amount vA"   [(ngModel)]="v1" (change) = "onchangeA()" > <!--" -->
+				<div class="terminator"></div>
+				<select class="sel xA"  [(ngModel)]="s1" (change) = "onchangeA()">
+					<option *ngFor="let rate of data">{{rate.cc}}</option>
+				</select>
+			</div>
+			<div class="currency">
+				<input type="number" class="amount vB"  [(ngModel)]="v2" (change) = "onchangeB()">
+				<div class="terminator"></div>
+				<select class="sel xB"  [(ngModel)]="s2" (change) = "onchangeB()">
+					<option *ngFor="let rate of data">{{rate.cc}}</option>
+				</select>
+			</div>
 		</div>
 	</div>
 </div>

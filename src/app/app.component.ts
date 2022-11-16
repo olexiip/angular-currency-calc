@@ -16,8 +16,10 @@ export class AppComponent implements  OnInit {
   EUR:any = "--";
   UAH = new Rate("Ураїнська гривня", 1, "UAH");
 
+  apiSubscription: any;
+
   ngOnInit() {
-    this.myApi.getData().subscribe({next:(resp:Rate[]) => {
+      this.myApi.getData().subscribe({next:(resp:Rate[]) => {
       resp.unshift(this.UAH);
       this.data=resp;
       this.findHeaderCurrency();
@@ -25,10 +27,6 @@ export class AppComponent implements  OnInit {
     
   };
  
-  ngOnDestroy() {
-    this.myApi.getData().subscribe();
-  }
-  
   findHeaderCurrency() {
      this.USD = this.data.find((element:any) => {
      return element.cc === "USD"

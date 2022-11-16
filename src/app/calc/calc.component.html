@@ -3,17 +3,17 @@
 	<div *ngIf="ready">
 		<div class="calc-form">
 			<div class="currency">
-				<input type="number" maxlength="5" class="amount vA"   [(ngModel)]="v1" (ngModelChange) = "onchangeVA()" > <!--" -->
+				<input type="number" maxlength="5" class="amount vA"   [(ngModel)]="inpt1" (ngModelChange) = "onchangeVA()" > <!--" -->
 				<div class="terminator"></div>
-				<select class="sel xA"  [(ngModel)]="s1" (change) = "onchangeA()"><!-- [(ngModel)]="s1"-->
-					<option *ngFor="let rate of data" (ngModel)="rate.cc">{{rate.cc}}</option>
+				<select class="sel xA"  [(ngModel)]="sel1" (change) = "onchangeA()"><!-- [(ngModel)]="s1"-->
+					<option *ngFor="let rate of rates" (ngModel)="rate.cc">{{rate.cc}}</option>
 				</select>
 			</div>
 			<div class="currency">
-				<input type="number" class="amount vB"  [(ngModel)]="v2" (ngModelChange) = "onchangeVB()">
+				<input type="number" class="amount vB"  [(ngModel)]="inpt2" (ngModelChange) = "onchangeVB()">
 				<div class="terminator"></div>
-				<select class="sel xB"	[(ngModel)]="s2"   (change) = "onchangeB()"> <!-- [(ngModel)]="s2"-->
-					<option *ngFor="let rate of data" (ngModel)="rate.cc">{{rate.cc}}</option>
+				<select class="sel xB"	[(ngModel)]="sel2"   (change) = "onchangeB()"> <!-- [(ngModel)]="s2"-->
+					<option *ngFor="let rate of rates" (ngModel)="rate.cc">{{rate.cc}}</option>
 				</select>
 			</div>
 		</div>

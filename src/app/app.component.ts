@@ -1,9 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { MyApiService } from './services/my-api.service';
+import { MyApiService } from './services/api.service';
 import { Rate } from './models/RateClass';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -17,36 +14,23 @@ export class AppComponent implements  OnInit {
   data:Rate[]=[];
   USD:any="--";
   EUR:any = "--";
-  UAH={
-    "cc":"UAH",
-    "txt":"Ураїнська гривня",
-    "rate":1,
-    "exchangedate":"",
-    "r030":"980"
-  };
-  
-  getDataSub:any;
+  UAH = new Rate("Ураїнська гривня", 1, "UAH");
 
   ngOnInit() {
-    console.log("ngOnInit");
     this.myApi.getData().subscribe({next:(resp:Rate[]) => {
-      resp.push(this.UAH);
+      resp.unshift(this.UAH);
       this.data=resp;
-      // console.log(this.data)
-      this.ff();
+      this.findHeaderCurrency();
     }}); 
     
   };
  
   ngOnDestroy() {
-    if(this.getDataSub){
-      console.log("unsubscribe");
-      alert("ff");
-      this.getDataSub.unsubscribe();
-    }
+    this.myApi.getData().subscribe();
   }
-  ff() {
-     this.USD = this.data.find( (element:any) => {
+  
+  findHeaderCurrency() {
+     this.USD = this.data.find((element:any) => {
      return element.cc === "USD"
     })?.rate
 
@@ -57,14 +41,3 @@ export class AppComponent implements  OnInit {
 }
 
 }
-
-
-
-
-
-
-
-
-
-
-//https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json

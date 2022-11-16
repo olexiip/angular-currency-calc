@@ -8,12 +8,7 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   
   constructor() { }
-  @Input() USD:string = "--";
-  @Input() EUR:string = "--";
-
-  ngOnInit(): void {
-    // console.log(this.USD);
-    // console.log(this.EUR);
-  }
+  @Input() USD = 0.0;
+  @Input() EUR= 0.0;
 
 }

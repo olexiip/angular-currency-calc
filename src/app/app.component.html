@@ -1,4 +1,8 @@
-<app-header [USD]="USD" [EUR]="EUR" class="my-header"></app-header>
-<hr style="width: 98%;">
-<app-calc [data]="data"></app-calc>
-
+<div *ngIf="ready">
+	<app-header [USD]="USD.rate" [EUR]="EUR.rate" class="my-header"></app-header>
+	<hr style="width: 98%;">
+	<app-calc [data]="data"></app-calc>
+</div>
+<div *ngIf="!ready">
+	<div class="loading">loading...</div>
+</div>
